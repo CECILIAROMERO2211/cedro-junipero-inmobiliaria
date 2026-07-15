@@ -1,53 +1,48 @@
-import { createContext, useState, useEffect } from 'react';
+import { PropertyContext } from './property-context';
 
-// 1. Creamos el contexto
-export const PropertyContext = createContext();
+const propertyData = [
+  {
+    id: 1,
+    title: 'Residencia Cedro',
+    price: 1500000,
+    type: 'Venta',
+    img: '/images/residencia-cedro.jpg',
+    beds: 3,
+    baths: 2,
+    area: 120,
+    gallery: [
+      '/images/residencia-cedro.jpg',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Departamento Junípero',
+    price: 2500000,
+    type: 'Venta',
+    img: '/images/departamento-junipero.jpg',
+    beds: 2,
+    baths: 2,
+    area: 95,
+    gallery: [
+      '/images/departamento-junipero.jpg',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?auto=format&fit=crop&w=1400&q=85',
+    ],
+  },
+];
 
-// 2. Creamos el proveedor que envolverá tu aplicación
 export const PropertyProvider = ({ children }) => {
-  const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadProperties = async () => {
-      try {
-        // Datos completos con los campos que tu componente PropertyCard necesita
-        const mockData = [
-          { 
-            id: 1, 
-            title: 'Residencia Cedro', 
-            price: 1500000, 
-            type: 'Venta',
-            img: '/images/residencia-cedro.jpg', // Asegúrate que esta imagen esté en public/images/
-            beds: 3, 
-            baths: 2, 
-            area: 120 
-          },
-          { 
-            id: 2, 
-            title: 'Departamento Junípero', 
-            price: 2500000, 
-            type: 'Venta',
-            img: '/images/departamento-junipero.jpg', // Asegúrate que esta imagen esté en public/images/
-            beds: 2, 
-            baths: 2, 
-            area: 95 
-          }
-        ];
-        
-        setProperties(mockData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error al cargar las propiedades:", error);
-        setLoading(false);
-      }
-    };
-
-    loadProperties();
-  }, []);
-
   return (
-    <PropertyContext.Provider value={{ properties, loading }}>
+    <PropertyContext.Provider
+      value={{
+        properties: propertyData,
+        loading: false,
+      }}
+    >
       {children}
     </PropertyContext.Provider>
   );
