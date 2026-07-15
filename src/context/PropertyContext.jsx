@@ -9,14 +9,30 @@ export const PropertyProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulación de carga de datos (puedes reemplazar esto con un fetch real más adelante)
     const loadProperties = async () => {
       try {
-        // Aquí iría tu llamado a una API o base de datos.
-        // Por ahora, dejamos un array vacío o datos de prueba.
+        // Datos completos con los campos que tu componente PropertyCard necesita
         const mockData = [
-          { id: 1, title: 'Residencia Cedro', price: 'Consulta precio' },
-          { id: 2, title: 'Departamento Junípero', price: 'Consulta precio' }
+          { 
+            id: 1, 
+            title: 'Residencia Cedro', 
+            price: 1500000, 
+            type: 'Venta',
+            img: '/images/residencia-cedro.jpg', // Asegúrate que esta imagen esté en public/images/
+            beds: 3, 
+            baths: 2, 
+            area: 120 
+          },
+          { 
+            id: 2, 
+            title: 'Departamento Junípero', 
+            price: 2500000, 
+            type: 'Venta',
+            img: '/images/departamento-junipero.jpg', // Asegúrate que esta imagen esté en public/images/
+            beds: 2, 
+            baths: 2, 
+            area: 95 
+          }
         ];
         
         setProperties(mockData);

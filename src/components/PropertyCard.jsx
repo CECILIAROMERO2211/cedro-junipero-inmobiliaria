@@ -1,19 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 
 export const PropertyCard = ({ property }) => {
+  // AÑADIMOS ESTO PARA DEPURAR:
+  console.log("Datos de la propiedad recibidos:", property);
+  
   const { id, title, price, type, img, beds, baths, area } = property;
   
-  // Hook para programar la navegación
   const navigate = useNavigate();
 
   const handleDetails = () => {
-    // Al hacer clic, enviamos al usuario a la ruta con el ID específico
     navigate(`/propiedad/${id}`);
   };
 
   return (
     <div className="montebello-card">
       <div className="card-img-container">
+        {/* Si ves esto en el DOM pero no la imagen, el problema es el 'src' */}
         <img src={img} alt={title} className="card-image" />
         <span className="card-badge">{type}</span>
       </div>
@@ -21,7 +23,7 @@ export const PropertyCard = ({ property }) => {
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="card-price">
-          ${price.toLocaleString()} {type === 'Renta' ? '/ mes' : 'USD'}
+          ${price?.toLocaleString()} {type === 'Renta' ? '/ mes' : 'USD'}
         </p>
 
         <div className="card-details">
@@ -32,7 +34,6 @@ export const PropertyCard = ({ property }) => {
           <span>{area} m²</span>
         </div>
         
-        {/* Conectamos el botón a nuestra función de navegación */}
         <button className="btn-outline" onClick={handleDetails}>
           VER DETALLES
         </button>
