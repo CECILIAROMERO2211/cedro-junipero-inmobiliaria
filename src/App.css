@@ -163,3 +163,21 @@ body {
   .intro-section { padding: 4rem 1rem; }
   .catalog-section { padding: 4rem 1rem 6rem 1rem; }
 }
+/* Esto se aplicará solo en pantallas pequeñas (celulares) */
+@media (max-width: 768px) {
+  .black-header { /* Asegúrate de que esta sea la clase de tu header */
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .nav-links { /* Si tienes una clase que contiene tus links, ocúltala o redúcela */
+    display: none; /* Por ahora, ocultaremos los links para que no se vea desordenado */
+  }
+
+  /* Opcional: Centrar el logo que sí se ve */
+  .logo {
+    width: 80px; 
+    margin: 0 auto;
+  }
+}
