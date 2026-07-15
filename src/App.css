@@ -1,69 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+/* Limpieza total y forzada */
+* { box-sizing: border-box !important; margin: 0; padding: 0; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg-cream: #FCFAF5; 
-  --text-dark: #121212;
-  --gold-primary: #B89761; 
-  --gold-dark: #8C734B;
-  --gray-light: #EBE5DB;
-}
-
-body { 
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-  background-color: var(--bg-cream); 
-  color: var(--text-dark); 
-  font-family: 'Montserrat', sans-serif; 
-}
-
-/* --- ENCABEZADO --- */
 .black-header {
   background-color: #0d0d0d;
+  width: 100%;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 3rem;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--gold-dark);
 }
 
-.header-nav { display: flex; align-items: center; gap: 2.5rem; }
-.header-nav a { color: var(--bg-cream); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; }
-.logo-img { height: 80px; width: auto; object-fit: contain; }
-
-/* --- SECCIONES --- */
-.title-main-dark { font-family: 'Playfair Display', serif; font-size: 4rem; text-align: center; margin-bottom: 2rem; }
-.features-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; }
-.properties-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; padding: 2rem; }
-
-/* --- MEDIA QUERIES (FUERZA BRUTA PARA MÓVIL) --- */
 @media (max-width: 768px) {
-  .black-header { 
-    display: flex !important;
-    flex-direction: column !important; 
-    align-items: center !important; 
-    padding: 20px !important; 
-    width: 100vw !important;
-  }
-  
-  .header-nav { 
-    display: flex !important;
-    flex-direction: column !important; 
-    gap: 15px !important; 
-    margin-top: 15px !important; 
+  /* Forzamos que todo se apile */
+  .black-header {
+    flex-direction: column !important;
     text-align: center !important;
   }
-
-  .logo-img { height: 50px !important; }
-  
-  .title-main-dark { font-size: 2rem !important; }
-  .features-grid-2x2, .properties-grid { grid-template-columns: 1fr !important; }
-  
-  .intro-section { padding: 2rem 1rem !important; }
+  .header-nav {
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin-top: 15px !important;
+  }
 }
