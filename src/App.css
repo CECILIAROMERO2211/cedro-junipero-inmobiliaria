@@ -11,6 +11,9 @@
 }
 
 body { 
+  overflow-x: hidden; /* Esto evita que la página se mueva horizontalmente */
+  width: 100%;
+  position: relative;
   background-color: var(--bg-cream); 
   color: var(--text-dark); 
   font-family: 'Montserrat', sans-serif; 
