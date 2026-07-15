@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { PropertyContext } from '../context/PropertyContext';
 import { PropertyCard } from '../components/PropertyCard';
 
@@ -9,6 +10,11 @@ export const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Cedro & Junípero | Inmobiliaria de Lujo y Arquitectura</title>
+        <meta name="description" content="Cedro & Junípero: Curaduría de propiedades exclusivas y arquitectura de vanguardia." />
+      </Helmet>
+
       <section className="intro-section beige-bg">
         <h1 className="title-main-dark">El Arte del Buen Vivir</h1>
         <p className="intro-text-luxury">
